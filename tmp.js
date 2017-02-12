@@ -101,18 +101,20 @@ function fizzbuzz (endNumber){
  words and returns the longest word.
  * i.e. findLongestWord("a book full of dogs") should return "book"
  */
- function findLongestWord(sentenceString){
-     var wordsArray = sentenceString.split(/\W+/)
-     var lengthOfLongest = 0
-     var longestWord = ""
-     for (var i = 0; i < wordsArray.length; i++){
-         if (wordsArray[i].length>lengthOfLongest){
-             lengthOfLongest = wordsArray[i].length
-             longestWord = wordsArray[i]
-         }
-     }
-     return longestWord     
- }
+function findLongestWord(string){
+    var updatedString = string.replace("'","")
+    var stringToArray = updatedString.split(' ')
+    var lengthOfLongest = 0
+    var longestWord = ''
+    for (var i = 0; i< stringToArray.length; i++){
+        if (stringToArray[i].length > lengthOfLongest){
+            lengthOfLongest = stringToArray[i].length
+            longestWord = stringToArray[i]            
+        }
+    }
+    return longestWord
+}
+
 
 /**
  * PART 6
