@@ -6,7 +6,7 @@
  function sumOfArray(array){
      var summation = 0
      for (var i = 0; i < array.length; i++){
-         summation = summation + array[i]
+         summation += array[i]
      }
      return summation
  }
@@ -19,7 +19,7 @@ function maxOfArray(array){
     var highest = 0;
     for (var i = 0; i < array.length; i++) {
         if (array[i] > highest){
-            highest = array[i]
+            highest = array[i] //replace highest each time it is encountered
         }
     }
     return highest
@@ -52,7 +52,7 @@ function isVowel(character){
     var reversedString = ""
     for (var i = string.length-1; i >= 0; i--){
         if (i>=0){
-            reversedString = reversedString + string[i]
+            reversedString += string[i] //add to reversed string starting from the last letter
         }
     }
     return reversedString
@@ -101,10 +101,10 @@ function fizzbuzz (endNumber){
  * i.e. findLongestWord("a book full of dogs") should return "book"
  */
 function findLongestWord(string){
-    var updatedString = string.replace("'","")
-    var stringToArray = updatedString.split(' ')
-    var lengthOfLongest = 0
-    var longestWord = ''
+    var updatedString = string.replace("'","")//replace all appostrophes with nothing. ex: don't = dont
+    var stringToArray = updatedString.split(' ')//split to array
+    var lengthOfLongest = 0 //longest word counter
+    var longestWord = '' //gets updated each time a longer word is found
     for (var i = 0; i< stringToArray.length; i++){
         if (stringToArray[i].length > lengthOfLongest){
             lengthOfLongest = stringToArray[i].length
@@ -121,4 +121,13 @@ function findLongestWord(string){
  * write a function that returns the Greatest Common Denominator of two numbers
  * - if no GCD exists, return 1
  */
+ function GCD(num1, num2) {
+    for (var i = num1; i > 0; i--) { //counter on loop is backwards
+        if (num1 % i === 0 && num2 % i === 0) { //the GCD can't be found until the number tested is at least the same value as the second number so it doesn't matter if num1 is greater than num2
+            return i
+        }
+    }
+    return 1
+}
+
 
